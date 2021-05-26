@@ -1,0 +1,91 @@
+.hero {
+
+    width: 100%;
+    background-color: $verylightgray;
+
+    .container {
+        @include breakpoint-up(large) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+    &__image {
+        position: relative;
+        // border: 1px solid magenta;
+        background-image: url('/images/bg-intro-mobile.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 22.5rem;
+
+        @include breakpoint-up(medium) {
+            min-height: 29rem;
+            background-position: center 63%;
+        }
+
+        @include breakpoint-up(large) {
+            flex: 3;
+            order: 2;
+            min-height: 41rem;
+            background-image: none;
+            // background-image: url('/images/bg-intro-desktop.svg');
+            // background-position: left center;
+        }
+
+        &::before {
+            // border: 1px solid magenta;
+
+            @include breakpoint-up(large) {
+                width: 150%;
+                background-size: 111%;
+                background-repeat: no-repeat;
+                background-position: -19% 110%;
+                content: "";
+                position: absolute;
+                background-image: url('/images/bg-intro-desktop.svg');
+                height: 100%;
+                background-size: 93%;
+                background-repeat: no-repeat;
+                background-position: center bottom;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-image: url('/images/image-mockups.png');
+            height: 98%;
+            width: 100%;
+            background-size: 105%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+
+            @include breakpoint-up(medium) {
+                background-size: 52%;
+                height: 108%;
+            }
+
+            @include breakpoint-up(large) {
+                height: 128%;
+                width: 120%;
+                background-size: 100%;
+                background-position: center 182%;
+                left: 19%;
+            }
+        }
+
+    }
+
+    &__text {
+        text-align: center;
+
+        @include breakpoint-up(large) {
+            flex: 2;
+            order: 1;
+            text-align: left;
+        }
+
+    }
+}
